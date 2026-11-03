@@ -1,11 +1,13 @@
-﻿// //3. Сумма элементов
+﻿// // //3. Сумма элементов
 
-int[] scores = new int[7];
-for (int i = 0; i < scores.Length; i++)
-{
-    Console.Write($"Результат {i + 1}: ");
-    scores[i] = Convert.ToInt32(Console.ReadLine());
-}
+// int[] scores = new int[7];
+// for (int i = 0; i < scores.Length; i++)
+// {
+//     Console.Write($"Результат {i + 1}: ");
+//     scores[i] = Convert.ToInt32(Console.ReadLine());
+// }
+
+using System.Dynamic;
 
 int SumArray(int[] numbers)
 {
@@ -21,96 +23,121 @@ int SumArray(int[] numbers)
 
 
 
-// //4. Подсчёт элементов по условию
-int CountAtLeast(int[] numbers, int limit)
+// // //4. Подсчёт элементов по условию
+// int CountAtLeast(int[] numbers, int limit)
+// {
+//     int count = 0;
+
+//     foreach (int number in numbers)
+//     {
+//         if (number >= limit)
+//         {
+//             count++;
+//         }
+//     }
+
+//     return count;
+// }
+
+
+
+// //5. Минимум и максимум
+// int FindMax(int[] numbers)
+// {
+//     int max = numbers[0];
+
+//     for (int i = 1; i < numbers.Length; i++)
+//     {
+//         if (numbers[i] > max)
+//         {
+//             max = numbers[i];
+//         }
+//     }
+
+//     return max;
+// }
+// Console.WriteLine($"Максимум: {FindMax(scores)}");
+
+// int FindMin(int[] numbers)
+// {
+//     int min = numbers[0];
+//     for (int i = 1; i < numbers.Length; i++)
+//     {
+//         if (numbers[i] < min)
+//         {
+//             min = numbers[i];
+//         }
+//     }
+//     return min;
+// }
+
+
+
+
+// // //6. Линейный поиск и индекс
+// int FindIndex(int[] numbers, int target)
+// {
+//     for (int i = 0; i < numbers.Length; i++)
+//     {
+//         if (numbers[i] == target)
+//         {
+//             return i;
+//         }
+//     }
+
+//     return -1;
+// }
+
+// // Console.WriteLine(">>> Анализ результатов <<<");
+// // Console.WriteLine();
+// // Console.WriteLine($"Сумма: {SumArray(scores)}");
+// // Console.WriteLine($"Минимум: {FindMin(scores)}");
+// // Console.WriteLine($"Максимум: {FindMax(scores)}");
+// // Console.WriteLine($"Результатов 50 и больше: {CountAtLeast(scores, 50)}");
+// // Console.Write("Какой результат найти: ");
+// // int target = int.Parse(Console.ReadLine());
+// // int index = FindIndex(scores, target);
+// // if (index == -1)
+// // {
+// //     Console.WriteLine("Результат не найден");
+// // }
+// // else
+// // {
+// //     Console.WriteLine($"Первый индекс: {index}");
+// // }
+
+
+
+// //Короткие проверки методов
+// Console.WriteLine(CountAtLeast(new int[] { 49, 50, 51 }, 50));
+// int[] test = { -10, -3, -25, -7 };
+// Console.WriteLine(FindMin(test));
+// Console.WriteLine(FindMax(test));
+
+// Console.WriteLine(FindIndex(scores, 60));
+// Console.WriteLine(FindIndex(scores, 100));
+
+
+//13. Самостоятельное задание
+//Вариант 1. Среднее значение
+double CalculateAverage(int[] numbers)
+{
+    return (double)SumArray(numbers) / numbers.Length;
+}
+int[] values = { 1, 2 };
+Console.WriteLine(CalculateAverage(values));
+//Вариант 2. Количество вхождений
+int CountValue(int[] numbers, int target)
 {
     int count = 0;
-
-    foreach (int number in numbers)
-    {
-        if (number >= limit)
-        {
-            count++;
-        }
-    }
-
-    return count;
-}
-
-
-
-//5. Минимум и максимум
-int FindMax(int[] numbers)
-{
-    int max = numbers[0];
-
-    for (int i = 1; i < numbers.Length; i++)
-    {
-        if (numbers[i] > max)
-        {
-            max = numbers[i];
-        }
-    }
-
-    return max;
-}
-Console.WriteLine($"Максимум: {FindMax(scores)}");
-
-int FindMin(int[] numbers)
-{
-    int min = numbers[0];
-    for (int i = 1; i < numbers.Length; i++)
-    {
-        if (numbers[i] < min)
-        {
-            min = numbers[i];
-        }
-    }
-    return min;
-}
-
-
-
-
-// //6. Линейный поиск и индекс
-int FindIndex(int[] numbers, int target)
-{
     for (int i = 0; i < numbers.Length; i++)
     {
         if (numbers[i] == target)
         {
-            return i;
+            count++;
         }
     }
-
-    return -1;
+    return count;
 }
-
-// Console.WriteLine(">>> Анализ результатов <<<");
-// Console.WriteLine();
-// Console.WriteLine($"Сумма: {SumArray(scores)}");
-// Console.WriteLine($"Минимум: {FindMin(scores)}");
-// Console.WriteLine($"Максимум: {FindMax(scores)}");
-// Console.WriteLine($"Результатов 50 и больше: {CountAtLeast(scores, 50)}");
-// Console.Write("Какой результат найти: ");
-// int target = int.Parse(Console.ReadLine());
-// int index = FindIndex(scores, target);
-// if (index == -1)
-// {
-//     Console.WriteLine("Результат не найден");
-// }
-// else
-// {
-//     Console.WriteLine($"Первый индекс: {index}");
-// }
-
-
-
-//Короткие проверки методов
-Console.WriteLine(CountAtLeast(new int[] { 49, 50, 51 }, 50));
-int[] test = { -10, -3, -25, -7 };
-Console.WriteLine(FindMin(test));
-Console.WriteLine(FindMax(test));
-
-Console.WriteLine(FindIndex(scores, 60));
-Console.WriteLine(FindIndex(scores, 100));
+int[] n = { 5, 8, 5, 10, 5 };
+Console.WriteLine(CountValue(n, 5));
